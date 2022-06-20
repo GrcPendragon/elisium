@@ -1,46 +1,30 @@
 package com.testingdevops.elisium;
 
-import java.util.Scanner;
+import com.testingdevops.elisium.controler.ControlerElisium;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  *
  * @author Fausto Garcia
  */
 public class Elisium {
-
+    
     public static void main(String[] args) {
-        Password pass = new Password();
-        int opt;
-        int length;
-        Scanner keyboard = new Scanner(System.in);
-
-        System.out.print("""
-                         Select type password to generate: 
-                          1) Code PIN (4 digits).
-                          2) Code PIN with variable length.
-                          3) Password alphanumeric.
-                          4) Password alphanumeric with variable length.
-                          5) Password alphanumeric with special characters.
-                          6) Password alphanumeric with variable length and special characters.
-                         Option -> """);
-        opt = keyboard.nextInt();
-        switch (opt) {
-            case 1 ->
-                System.out.println("Your new PIN is: " + pass.getPin());
-            case 2 -> {
-                System.out.print("Insert the digits amount to PIN code -> ");
-                length = keyboard.nextInt();
-                System.out.println("Your new PIN code is: " + pass.getPin(length));
-            }
-            case 3 ->
-                System.out.println("Your new password is: " + pass.getPassword());
-            case 4 -> {
-                System.out.print("Insert the characters number to password -> ");
-                length = keyboard.nextInt();
-                System.out.println("Your new password is: " + pass.getPassword(length));
-            }
-            default ->
-                throw new AssertionError();
+        try{
+        ControlerElisium controler = new ControlerElisium();
+        controler.run();
+        }catch (IOException err) {
+            System.out.println("Error ocurrido en la entrada/salida de datos.");
+            System.out.println(err);
+        } catch (NullPointerException err) {
+            System.out.println("Error: ");
+            System.out.println(err);
+        } catch (AssertionError err) {
+            System.out.println("Incorrect option.");
+        } catch (Exception ex) {
+            Logger.getLogger(Elisium.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 }

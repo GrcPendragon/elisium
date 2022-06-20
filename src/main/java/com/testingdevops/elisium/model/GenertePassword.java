@@ -1,4 +1,4 @@
-package com.testingdevops.elisium;
+package com.testingdevops.elisium.model;
 
 import java.util.Random;
 
@@ -6,21 +6,17 @@ import java.util.Random;
  *
  * @author Fausto Garcia
  */
-public class Password {
-
-    private final String NUMBER = "0123456789";
-    private final String LOWERCASE = "abcdefghijklmnopqrstuvwxyz";
-    private final String UPPERCASE = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+public class GenertePassword {
+    
     private final String SPECIAL = "$@#Ññ";
     private final int PIN_LENGHT = 4;
     private final int PASS_LENGHT = 8;
     private final StringBuilder pass;
     private final Random roulette;
-
     /**
      * Este constructor asigna a memoria los objetos Ramdom y la cada pass
      */
-    public Password() {
+    public GenertePassword() {
         roulette = new Random();
         this.pass = new StringBuilder();
     }
@@ -60,7 +56,7 @@ public class Password {
     public String getPassword() {
         int opt;
         for (int i = 0; i < PASS_LENGHT; i++) {
-            opt = roulette.nextInt(1, 3);
+            opt = roulette.nextInt(1, 4);
             switch (opt) {
                 case 1 ->
                     this.pass.append(getNumber());
@@ -68,8 +64,6 @@ public class Password {
                     this.pass.append(getLowercase());
                 case 3 ->
                     this.pass.append(getUppercase());
-                default ->
-                    throw new AssertionError();
             }
         }
         return this.pass.toString();
@@ -78,7 +72,7 @@ public class Password {
     public String getPasswordSpecial() {
         int opt;
         for (int i = 0; i < PASS_LENGHT; i++) {
-            opt = roulette.nextInt(1, 4);
+            opt = roulette.nextInt(1, 5);
             switch (opt) {
                 case 1 ->
                     this.pass.append(getNumber());
@@ -88,8 +82,6 @@ public class Password {
                     this.pass.append(getUppercase());
                 case 4 ->
                     this.pass.append(getSpecial());
-                default ->
-                    throw new AssertionError();
             }
         }
         return this.pass.toString();
@@ -104,7 +96,7 @@ public class Password {
     public String getPassword(int pass_Lenght) {
         int opt;
         for (int i = 0; i < pass_Lenght; i++) {
-            opt = roulette.nextInt(1, 3);
+            opt = roulette.nextInt(1, 4);
             switch (opt) {
                 case 1 ->
                     this.pass.append(getNumber());
@@ -112,8 +104,6 @@ public class Password {
                     this.pass.append(getLowercase());
                 case 3 ->
                     this.pass.append(getUppercase());
-                default ->
-                    throw new AssertionError();
             }
         }
         return this.pass.toString();
@@ -122,7 +112,7 @@ public class Password {
     public String getPasswordSpecial(int pass_Lenght) {
         int opt;
         for (int i = 0; i < pass_Lenght; i++) {
-            opt = roulette.nextInt(1, 4);
+            opt = roulette.nextInt(1, 5);
             switch (opt) {
                 case 1 ->
                     this.pass.append(getNumber());
@@ -132,26 +122,24 @@ public class Password {
                     this.pass.append(getUppercase());
                 case 4 ->
                     this.pass.append(getSpecial());
-                default ->
-                    throw new AssertionError();
             }
         }
         return this.pass.toString();
     }
 
     private char getNumber() {
-        return NUMBER.charAt(roulette.nextInt(1, 10));
+        return (char) roulette.nextInt(48, 58);
     }
 
     private char getLowercase() {
-        return LOWERCASE.charAt(roulette.nextInt(1, 26));
+        return (char) roulette.nextInt(97, 123);
     }
 
     private char getUppercase() {
-        return UPPERCASE.charAt(roulette.nextInt(1, 26));
+        return (char) roulette.nextInt(65, 91);
     }
 
     private char getSpecial() {
-        return SPECIAL.charAt(roulette.nextInt(1, 26));
+        return SPECIAL.charAt(roulette.nextInt(1, SPECIAL.length()));
     }
 }

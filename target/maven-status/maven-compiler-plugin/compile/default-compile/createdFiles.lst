@@ -1,1 +1,3 @@
-com\testingdevops\elisium\Elisium.class
+com\testingdevops\elisium\model\FileCRUD.class
+com\testingdevops\elisium\model\GenertePassword.class
+com\testingdevops\elisium\controler\Elisium.class
