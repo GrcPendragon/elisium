@@ -56,14 +56,17 @@ public class GenertePassword {
     public String getPassword() {
         int opt;
         for (int i = 0; i < PASS_LENGHT; i++) {
-            opt = roulette.nextInt(1, 4);
+            opt = roulette.nextInt(3);
             switch (opt) {
-                case 1 ->
+                case 0 :
                     this.pass.append(getNumber());
-                case 2 ->
+                    break;
+                case 1 :
                     this.pass.append(getLowercase());
-                case 3 ->
+                    break;
+                case 2 :
                     this.pass.append(getUppercase());
+                    break;
             }
         }
         return this.pass.toString();
@@ -72,16 +75,20 @@ public class GenertePassword {
     public String getPasswordSpecial() {
         int opt;
         for (int i = 0; i < PASS_LENGHT; i++) {
-            opt = roulette.nextInt(1, 5);
+            opt = roulette.nextInt(4);
             switch (opt) {
-                case 1 ->
+                case 0 :
                     this.pass.append(getNumber());
-                case 2 ->
+                    break;
+                case 1 :
                     this.pass.append(getLowercase());
-                case 3 ->
+                    break;
+                case 2 :
                     this.pass.append(getUppercase());
-                case 4 ->
+                    break;
+                case 3 :
                     this.pass.append(getSpecial());
+                    break;
             }
         }
         return this.pass.toString();
@@ -96,14 +103,17 @@ public class GenertePassword {
     public String getPassword(int pass_Lenght) {
         int opt;
         for (int i = 0; i < pass_Lenght; i++) {
-            opt = roulette.nextInt(1, 4);
+            opt = roulette.nextInt(3);
             switch (opt) {
-                case 1 ->
+                case 0 : 
                     this.pass.append(getNumber());
-                case 2 ->
+                    break;
+                case 1 :
                     this.pass.append(getLowercase());
-                case 3 ->
+                    break;
+                case 2 :
                     this.pass.append(getUppercase());
+                    break;
             }
         }
         return this.pass.toString();
@@ -112,34 +122,38 @@ public class GenertePassword {
     public String getPasswordSpecial(int pass_Lenght) {
         int opt;
         for (int i = 0; i < pass_Lenght; i++) {
-            opt = roulette.nextInt(1, 5);
+            opt = roulette.nextInt(4);
             switch (opt) {
-                case 1 ->
+                case 0 :
                     this.pass.append(getNumber());
-                case 2 ->
+                    break;
+                case 1 :
                     this.pass.append(getLowercase());
-                case 3 ->
+                    break;
+                case 2 :
                     this.pass.append(getUppercase());
-                case 4 ->
+                    break;
+                case 3 :
                     this.pass.append(getSpecial());
+                    break;
             }
         }
         return this.pass.toString();
     }
 
     private char getNumber() {
-        return (char) roulette.nextInt(48, 58);
+        return (char) (48  + roulette.nextInt(58));
     }
 
     private char getLowercase() {
-        return (char) roulette.nextInt(97, 123);
+        return (char) (97 + roulette.nextInt(123));
     }
 
     private char getUppercase() {
-        return (char) roulette.nextInt(65, 91);
+        return (char) (65 + roulette.nextInt(91));
     }
 
     private char getSpecial() {
-        return SPECIAL.charAt(roulette.nextInt(1, SPECIAL.length()));
+        return SPECIAL.charAt(1 + roulette.nextInt(SPECIAL.length()+1));
     }
 }

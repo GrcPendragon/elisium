@@ -8,7 +8,7 @@ import java.util.*;
  */
 public class MenuOpt {
 
-    private Scanner keyboard;
+    private final Scanner keyboard;
     private String pass;
     private int length;
     private int opt;
@@ -60,15 +60,14 @@ public class MenuOpt {
     }
     
     public void menu() throws Exception{
-        System.out.print("""
-                                     Select type password to generate:
-                                      1) Code PIN (4 digits).
-                                      2) Code PIN with variable length.
-                                      3) Password alphanumeric.
-                                      4) Password alphanumeric with variable length.
-                                      5) Password alphanumeric with special characters.
-                                      6) Password alphanumeric with variable length and special characters.
-                                     Option -> """);
+        System.out.print("Select type password to generate:"
+                + "1) Code PIN (4 digits)."
+                + "2) Code PIN with variable length."
+                + "3) Password alphanumeric."
+                + "4) Password alphanumeric with variable length."
+                + "5) Password alphanumeric with special characters."
+                + "6) Password alphanumeric with variable length and special characters."
+                + "Option -> ");
         setOpt(keyboard.nextInt());
     }
     

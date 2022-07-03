@@ -1,3 +1,7 @@
+com\testingdevops\elisium\controler\ControlerElisium.class
+com\testingdevops\elisium\Elisium.class
+module-info.class
+com\testingdevops\elisium\model\UserInfo.class
 com\testingdevops\elisium\model\FileCRUD.class
 com\testingdevops\elisium\model\GenertePassword.class
-com\testingdevops\elisium\controler\Elisium.class
+com\testingdevops\elisium\view\MenuOpt.class

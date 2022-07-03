@@ -11,45 +11,45 @@ import java.io.IOException;
  * @author Fausto Garcia
  */
 public class ControlerElisium {
-    
+
     private final GenertePassword pass;
     private final FileCRUD file;
     private final UserInfo userInfo;
     private final MenuOpt view;
-    
-    public ControlerElisium() throws IOException{
+
+    public ControlerElisium() throws IOException {
         pass = new GenertePassword();
         file = new FileCRUD();
         userInfo = new UserInfo();
         view = new MenuOpt();
     }
-    
+
     public void run() throws Exception {
         view.menu();
 
         switch (view.getOpt()) {
-            case 1 -> {
+            case 1:
                 view.optPIN(pass.getPin());
-            }
-            case 2 -> {
+                break;
+            case 2:
                 view.passLength();
                 view.optPIN(pass.getPin(view.getLength()));
-            }
-            case 3 -> {
+                break;
+            case 3:
                 view.optPassword(pass.getPassword());
-            }
-            case 4 -> {
+                break;
+            case 4:
                 view.passLength();
                 view.optPassword(pass.getPassword(view.getLength()));
-            }
-            case 5 -> {
+                break;
+            case 5:
                 view.optPassword(pass.getPasswordSpecial());
-            }
-            case 6 -> {
+                break;
+            case 6:
                 view.passLength();
                 view.optPassword(pass.getPasswordSpecial(view.getLength()));
-            }
-            default ->
+                break;
+            default:
                 throw new AssertionError();
         }
 
