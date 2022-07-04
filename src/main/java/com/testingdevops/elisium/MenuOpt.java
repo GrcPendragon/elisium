@@ -1,4 +1,4 @@
-package com.testingdevops.elisium.view;
+package com.testingdevops.elisium;
 
 import java.util.*;
 

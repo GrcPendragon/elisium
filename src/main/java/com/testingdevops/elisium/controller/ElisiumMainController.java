@@ -1,23 +1,23 @@
-package com.testingdevops.elisium.controler;
+package com.testingdevops.elisium.controller;
 
 import com.testingdevops.elisium.model.GenertePassword;
 import com.testingdevops.elisium.model.FileCRUD;
 import com.testingdevops.elisium.model.UserInfo;
-import com.testingdevops.elisium.view.MenuOpt;
+import com.testingdevops.elisium.MenuOpt;
 import java.io.IOException;
 
 /**
  *
  * @author Fausto Garcia
  */
-public class ControlerElisium {
+public class ElisiumMainController {
 
     private final GenertePassword pass;
     private final FileCRUD file;
     private final UserInfo userInfo;
     private final MenuOpt view;
 
-    public ControlerElisium() throws IOException {
+    public ElisiumMainController() throws IOException {
         pass = new GenertePassword();
         file = new FileCRUD();
         userInfo = new UserInfo();

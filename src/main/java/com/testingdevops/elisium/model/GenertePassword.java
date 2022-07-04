@@ -14,7 +14,8 @@ public class GenertePassword {
     private final StringBuilder pass;
     private final Random roulette;
     /**
-     * Este constructor asigna a memoria los objetos Ramdom y la cada pass
+     * Inizializa los objetos Ramdom y StringBuilder que seran utilizados para la generacion de password
+     * y PIN codes.
      */
     public GenertePassword() {
         roulette = new Random();
@@ -37,7 +38,7 @@ public class GenertePassword {
      * Este metodo genera una cadena de digitos variables, segun los pasados por
      * parametros.
      *
-     * @param pin_Length
+     * @param pin_Length Indica la cantidad de digitos que tendra el PIN code.
      * @return retorna una cadena con el codigo PIN generado.
      */
     public String getPin(int pin_Length) {
@@ -72,6 +73,11 @@ public class GenertePassword {
         return this.pass.toString();
     }
 
+    /**
+     * Este metodo genera una password con caracteres especiales y de una longitud fija de 8 caracteres.
+     * 
+     * @return retorna una cadena con la password generada.
+     */
     public String getPasswordSpecial() {
         int opt;
         for (int i = 0; i < PASS_LENGHT; i++) {
@@ -97,7 +103,7 @@ public class GenertePassword {
     /**
      * Este metodo genera una password con una longitud variable, alfanumerica.
      *
-     * @param pass_Lenght
+     * @param pass_Lenght Indica la cantidad de caracteres de la password.
      * @return retorna una cadena con la password generada.
      */
     public String getPassword(int pass_Lenght) {
@@ -119,6 +125,12 @@ public class GenertePassword {
         return this.pass.toString();
     }
 
+    /**
+     * Este metodo genera una password con caracteres especiales pero con una longitud variable.
+     *
+     * @param pass_Lenght Indica la cantidad de caracteres.
+     * @return Retorna una cadena con la password generada.
+     */
     public String getPasswordSpecial(int pass_Lenght) {
         int opt;
         for (int i = 0; i < pass_Lenght; i++) {
@@ -141,18 +153,37 @@ public class GenertePassword {
         return this.pass.toString();
     }
 
+    /**
+     * Este metodo genera un digito, como char, aleatorio.
+     * @return Retorna un digito numerico de tipo char.
+     */
     private char getNumber() {
         return (char) (48  + roulette.nextInt(58));
     }
 
+    /**
+     * Este metodo genera un caracter alfabetico minusculo, como char, aleatorio.
+     * 
+     * @return Retorna un caracter alfabetico minusculo de tipo char.
+     */
     private char getLowercase() {
         return (char) (97 + roulette.nextInt(123));
     }
 
+    /**
+     * Este metodo genera un caracter alfabetico mayusculo, como char, aleatorio.
+     * 
+     * @return Retorna un caracter alfabetico mayusculo de tipo char.
+     */
     private char getUppercase() {
         return (char) (65 + roulette.nextInt(91));
     }
 
+    /**
+     * Este metodo genera un caracter especial determinado por una cadena, como char, de forma aleatoria.
+     * 
+     * @return Retorna un caracter especial de tipo char.
+     */
     private char getSpecial() {
         return SPECIAL.charAt(1 + roulette.nextInt(SPECIAL.length()+1));
     }
