@@ -14,8 +14,8 @@ public class FileCRUD {
     private final BufferedWriter writeFile;
 
     public FileCRUD() throws IOException {
+        new File("source").mkdir();
         this.file = new File(PATHNAME);
-        System.out.println(file.exists());
         if (!file.exists()) {
             this.writeFile = new BufferedWriter(new FileWriter(file, true));
             System.out.println("Make file in the route -> " + file.getAbsolutePath());

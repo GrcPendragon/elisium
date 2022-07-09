@@ -28,6 +28,7 @@ public class GenertePassword {
      * @return retorna una cadena con el codigo PIN generado
      */
     public String getPin() {
+        pass.delete(0, pass.length());
         for (int i = 0; i < PIN_LENGHT; i++) {
             this.pass.append(getNumber());
         }
@@ -42,6 +43,7 @@ public class GenertePassword {
      * @return retorna una cadena con el codigo PIN generado.
      */
     public String getPin(int pin_Length) {
+        pass.delete(0, pass.length());
         for (int i = 0; i < pin_Length; i++) {
             this.pass.append(getNumber());
         }
@@ -56,6 +58,7 @@ public class GenertePassword {
      */
     public String getPassword() {
         int opt;
+        pass.delete(0, pass.length());
         for (int i = 0; i < PASS_LENGHT; i++) {
             opt = roulette.nextInt(3);
             switch (opt) {
@@ -80,6 +83,7 @@ public class GenertePassword {
      */
     public String getPasswordSpecial() {
         int opt;
+        pass.delete(0, pass.length());
         for (int i = 0; i < PASS_LENGHT; i++) {
             opt = roulette.nextInt(4);
             switch (opt) {
@@ -108,6 +112,7 @@ public class GenertePassword {
      */
     public String getPassword(int pass_Lenght) {
         int opt;
+        pass.delete(0, pass.length());
         for (int i = 0; i < pass_Lenght; i++) {
             opt = roulette.nextInt(3);
             switch (opt) {
@@ -133,6 +138,7 @@ public class GenertePassword {
      */
     public String getPasswordSpecial(int pass_Lenght) {
         int opt;
+        pass.delete(0, pass.length());
         for (int i = 0; i < pass_Lenght; i++) {
             opt = roulette.nextInt(4);
             switch (opt) {
@@ -158,7 +164,7 @@ public class GenertePassword {
      * @return Retorna un digito numerico de tipo char.
      */
     private char getNumber() {
-        return (char) (48  + roulette.nextInt(58));
+        return ((char) (48  + roulette.nextInt(10)));
     }
 
     /**
@@ -167,7 +173,7 @@ public class GenertePassword {
      * @return Retorna un caracter alfabetico minusculo de tipo char.
      */
     private char getLowercase() {
-        return (char) (97 + roulette.nextInt(123));
+        return ((char) (97 + roulette.nextInt(26)));
     }
 
     /**
@@ -176,7 +182,7 @@ public class GenertePassword {
      * @return Retorna un caracter alfabetico mayusculo de tipo char.
      */
     private char getUppercase() {
-        return (char) (65 + roulette.nextInt(91));
+        return ((char) (65 + roulette.nextInt(26)));
     }
 
     /**
@@ -185,6 +191,6 @@ public class GenertePassword {
      * @return Retorna un caracter especial de tipo char.
      */
     private char getSpecial() {
-        return SPECIAL.charAt(1 + roulette.nextInt(SPECIAL.length()+1));
+        return SPECIAL.charAt(roulette.nextInt(SPECIAL.length()));
     }
 }
