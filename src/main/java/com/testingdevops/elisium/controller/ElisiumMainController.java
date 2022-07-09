@@ -120,5 +120,6 @@ public class ElisiumMainController implements Initializable {
         lblNumberChar.setVisible(false);
         txtDigit.setVisible(false);
         setUserData();
+        
     }
 }
